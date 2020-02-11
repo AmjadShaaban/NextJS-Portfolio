@@ -3,7 +3,7 @@ import { HeaderSection } from '../interfaces';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
+import Contact from '../components/Contact';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import GitHubIcon from '@material-ui/icons/GitHub';
@@ -51,9 +51,7 @@ const Header: FC<{ sections: HeaderSection[]; title: String }> = ({
         >
           {title}
         </Typography>
-        <Button variant='outlined' size='small'>
-          Contact
-        </Button>
+        <Contact />
       </Toolbar>
       <Toolbar
         component='nav'

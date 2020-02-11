@@ -12,6 +12,10 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { StylesProvider, ThemeProvider } from '@material-ui/styles';
+import * as colors from '@material-ui/core/colors/';
+
 const useStyles = makeStyles((theme: Theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3)
@@ -32,6 +36,7 @@ const sections = [
 ];
 
 const mainFeaturedProject = {
+  id: 0,
   title: 'Project Point of Sale',
   body: `Bootcamps final project, Also my 1st attempt at typescript, still Work in progress`,
   image: '/images/ReactTS.png',
@@ -42,6 +47,7 @@ const mainFeaturedProject = {
 
 const featuredPosts = [
   {
+    id: 1,
     title: 'Featured post',
     body:
       'This is a wider card with supporting text below as a natural lead-in to additional content.',
@@ -51,6 +57,7 @@ const featuredPosts = [
     hostedLink: ''
   },
   {
+    id: 2,
     title: 'Post title',
     body:
       'This is a wider card with supporting text below as a natural lead-in to additional content.',
@@ -61,6 +68,7 @@ const featuredPosts = [
   }
 ];
 const post1 = {
+  id: 3,
   title: 'yoyo1',
   body:
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, ipsam aliquam placeat maiores laudantium porro! Eligendi vel fugiat in nemo, eos vero inventore iusto quam molestiae, libero quis a id.',
@@ -71,6 +79,7 @@ const post1 = {
 };
 
 const post2 = {
+  id: 4,
   title: 'yoyo2',
   body:
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, ipsam aliquam placeat maiores laudantium porro! Eligendi vel fugiat in nemo, eos vero inventore iusto quam molestiae, libero quis a id.',
@@ -80,6 +89,7 @@ const post2 = {
   hostedLink: ''
 };
 const post3 = {
+  id: 5,
   title: 'yoyo3',
   body:
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, ipsam aliquam placeat maiores laudantium porro! Eligendi vel fugiat in nemo, eos vero inventore iusto quam molestiae, libero quis a id.',
@@ -89,6 +99,7 @@ const post3 = {
   hostedLink: ''
 };
 const post4 = {
+  id: 6,
   title: 'yoyo4',
   body:
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, ipsam aliquam placeat maiores laudantium porro! Eligendi vel fugiat in nemo, eos vero inventore iusto quam molestiae, libero quis a id.',
@@ -102,7 +113,7 @@ const posts = [post1, post2, post3, post4];
 
 const sidebar = {
   title: 'Hi my name is Amjad',
-  aboutMe: `A recent graduate from UPenn LPS Full Stack Coding Bootcamp, I'm a Self-motivated team player with excellent communication skills and above all a curious learner, Im tech savey and most of my aquired skills are self-taught. Currently looking for work`,
+  aboutMe: `I'm a Self-motivated team player with excellent communication skills and above all a curious learner, Im tech savey and most of my aquired skills are self-taught. recently graduated from UPenn LPS Full Stack Coding Bootcamp, take a look around my work & if you like what you see please contact me.`,
   archives: sections,
   social: [
     {
@@ -120,31 +131,39 @@ const sidebar = {
 };
 
 const index: FC<{}> = () => {
+  const theme = createMuiTheme({
+    palette: {
+      primary: { main: '#000000' },
+      type: 'light'
+    }
+  });
   const classes = useStyles();
 
   return (
-    <>
-      <CssBaseline />
-      <Container maxWidth='lg'>
-        <Header title='My Corner' sections={sections} />
-        <main>
-          <MainFeatured post={mainFeaturedProject} />
-          <Grid container spacing={4}>
-            {featuredPosts.map(post => (
-              <Featured key={post.title} post={post} />
-            ))}{' '}
-          </Grid>
-          <Grid container spacing={5} className={classes.mainGrid}>
-            <Sidebar data={sidebar} />
-            <Main title='From the repo' posts={posts} />
-          </Grid>
-        </main>
-      </Container>
-      <Footer
-        title='Hire me!'
-        description={`I'm always up to the challange for the right price! 😂🤣`}
-      />
-    </>
+    <StylesProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Container maxWidth='lg'>
+          <Header title='My Corner' sections={sections} />
+          <main>
+            <MainFeatured post={mainFeaturedProject} />
+            <Grid container spacing={4}>
+              {featuredPosts.map(post => (
+                <Featured key={post.title} post={post} />
+              ))}{' '}
+            </Grid>
+            <Grid container spacing={5} className={classes.mainGrid}>
+              <Sidebar data={sidebar} />
+              <Main title='From the repo' posts={posts} />
+            </Grid>
+          </main>
+        </Container>
+        <Footer
+          title={`Let's develop the world`}
+          description={`My Corner is eniterly written in NextJS 🧡`}
+        />
+      </ThemeProvider>
+    </StylesProvider>
   );
 };
 

@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -54,7 +53,7 @@ const Featured: FC<{ post: any }> = ({ post }) => {
       <div className={classes.overlay} />
       <Grid container>
         <Grid item md={6}>
-          <div className={classes.mainFeaturedContent}>
+          <div className={classes.mainFeaturedContent} key={post.id}>
             <Typography
               component='h1'
               variant='h3'
@@ -66,8 +65,8 @@ const Featured: FC<{ post: any }> = ({ post }) => {
             <Typography variant='h5' color='inherit' paragraph>
               {post.body}
             </Typography>
-            <Link variant='subtitle1' href='#'>
-              {post.linkText}
+            <Link variant='subtitle1' color='inherit' href={post.repoLink}>
+              To repo...
             </Link>
           </div>
         </Grid>
