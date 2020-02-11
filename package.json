@@ -1,0 +1,31 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@material-ui/core": "^4.9.0",
+    "@material-ui/icons": "^4.5.1",
+    "@types/markdown-to-jsx": "^6.9.1",
+    "@types/mongoose": "^5.7.0",
+    "markdown-to-jsx": "^6.10.3",
+    "mongoose": "^5.8.11",
+    "next": "^9.2.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-markdown": "^4.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^13.5.3",
+    "@types/react": "^16.9.19",
+    "typescript": "^3.7.5"
+  }
+}
