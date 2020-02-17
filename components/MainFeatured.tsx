@@ -39,6 +39,7 @@ const Featured: FC<{ post: any }> = ({ post }) => {
 
   return (
     <Paper
+      elevation={2}
       className={classes.mainFeatured}
       style={{ backgroundImage: `url(${post.image})` }}
     >

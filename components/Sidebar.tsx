@@ -5,20 +5,31 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import { SvgIconProps } from '@material-ui/core';
-
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
 const useStyles = makeStyles(theme => ({
   sidebarAboutBox: {
-    padding: theme.spacing(2),
     backgroundColor: theme.palette.grey[200]
   },
   sidebarSection: {
     marginTop: theme.spacing(3)
+  },
+  root: {
+    maxWidth: 345
+  },
+  media: {
+    marginTop: theme.spacing(2),
+    height: 160,
+    maxHeight: '100%',
+    maxWidth: '100%'
   }
 }));
 
 const Sidebar: FC<{
   data: {
-    archives: { title: string; url: string }[];
+    archives: { image: string; imageTitle: string };
     aboutMe: string;
     social: {
       name: string;
@@ -32,25 +43,25 @@ const Sidebar: FC<{
   const { archives, aboutMe, social, title } = data;
   return (
     <Grid item xs={12} md={4}>
-      <Paper elevation={0} className={classes.sidebarAboutBox}>
-        <Typography variant='h6' gutterBottom>
-          {title}
-        </Typography>
-        <Typography>{aboutMe}</Typography>
-      </Paper>
-      <Typography variant='h6' gutterBottom className={classes.sidebarSection}>
-        Archives
-      </Typography>
-      {archives.map(archive => (
-        <Link
-          display='block'
-          variant='body1'
-          href={archive.url}
-          key={archive.title}
-        >
-          {archive.title}
-        </Link>
-      ))}
+      <Card className={classes.sidebarAboutBox}>
+        <CardActionArea>
+          <CardMedia
+            className={classes.media}
+            image={archives.image}
+            title={archives.imageTitle}
+          />
+          <CardContent>
+            <Typography gutterBottom variant='h5' component='h2'>
+              {title}
+            </Typography>
+            <Typography variant='body2' color='textSecondary' component='p'>
+              {aboutMe}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
+      <Typography variant='h6' gutterBottom></Typography>
+      <Typography></Typography>
       <Typography variant='h6' gutterBottom className={classes.sidebarSection}>
         Social
       </Typography>

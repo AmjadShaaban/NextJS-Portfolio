@@ -1,6 +1,7 @@
 import { Document } from 'mongoose';
 
 export interface IPost extends Document {
+  id: number;
   title: string;
   body: string;
   img?: string;

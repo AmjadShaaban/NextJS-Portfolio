@@ -78,7 +78,16 @@ export default function CustomizedDialogs() {
   const handleClose = () => {
     setOpen(false);
   };
-
+  const sendEmail = async () => {
+    await fetch('/api/contact', {
+      method: 'POST',
+      body: JSON.stringify({ name, email, message }),
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      })
+    });
+    handleClose();
+  };
   return (
     <div>
       <Button variant='outlined' size='small' onClick={handleClickOpen}>
@@ -90,19 +99,27 @@ export default function CustomizedDialogs() {
         open={open}
       >
         <DialogTitle id='customized-dialog-title' onClose={handleClose}>
-          Contact Me
+          Contact me!
         </DialogTitle>
         <DialogContent dividers>
+          <Typography gutterBottom component='h5'>
+            Thank you for taking the time to view my portfolio and i really hope
+            you like my work so far. If you have any questions, want to hire me
+            or just chat
+          </Typography>
+          <Typography gutterBottom component='h5'>
+            DON'T be a stranger and just fill the form below to say Hello!
+          </Typography>
           <TextField
             variant='outlined'
             margin='dense'
             required
             fullWidth
-            id='standard-static'
+            id='name'
             value={name}
             onChange={e => setName(e.target.value)}
-            label='Name'
-            name='name'
+            label='email'
+            name='email'
             autoFocus
           />
           <TextField
@@ -110,7 +127,7 @@ export default function CustomizedDialogs() {
             margin='dense'
             required
             fullWidth
-            id='standard-static'
+            id='email'
             value={email}
             onChange={e => setEmail(e.target.value)}
             label='email'
@@ -120,8 +137,8 @@ export default function CustomizedDialogs() {
           <TextField
             variant='outlined'
             margin='dense'
-            id='standard-multiline-static'
-            label='Item Discription'
+            id='message'
+            label='Message'
             required
             fullWidth
             multiline
@@ -133,11 +150,19 @@ export default function CustomizedDialogs() {
         <DialogActions>
           <Button
             autoFocus
-            onClick={handleClose}
+            onClick={sendEmail}
             variant='outlined'
             color='primary'
           >
-            Submit
+            Send Email
+          </Button>
+          <Button
+            autoFocus
+            onClick={handleClose}
+            variant='outlined'
+            color='secondary'
+          >
+            Close
           </Button>
         </DialogActions>
       </Dialog>

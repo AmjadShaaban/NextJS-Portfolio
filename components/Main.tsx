@@ -30,8 +30,8 @@ const Main: FC<{
         {title}
       </Typography>
       {posts.map(post => (
-        <>
-          <Grid item key={post.id}>
+        <div key={post.id}>
+          <Grid item>
             <CardActionArea component='a' href='#'>
               <Card className={classes.card}>
                 <div className={classes.cardDetails}>
@@ -59,7 +59,7 @@ const Main: FC<{
             </CardActionArea>
           </Grid>
           <br />
-        </>
+        </div>
       ))}
     </Grid>
   );
