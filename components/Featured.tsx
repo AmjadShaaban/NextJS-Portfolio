@@ -24,7 +24,7 @@ const Featured: FC<{ post: any }> = ({ post }) => {
   const classes = useStyles();
   return (
     <Grid item xs={12} md={6}>
-      <CardActionArea component='a' href='#'>
+      <CardActionArea component='a' href={post.repoLink}>
         <Card className={classes.card}>
           <div className={classes.cardDetails}>
             <CardContent>
@@ -38,7 +38,7 @@ const Featured: FC<{ post: any }> = ({ post }) => {
                 {post.body}
               </Typography>
               <Typography variant='subtitle1' color='primary'>
-                Continue reading...
+                Continue...
               </Typography>
             </CardContent>
           </div>

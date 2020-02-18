@@ -1,12 +1,11 @@
 import React, { FC } from 'react';
-import { HeaderSection } from '../interfaces';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import Contact from '../components/Contact';
 import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
 import GitHubIcon from '@material-ui/icons/GitHub';
+import Clock from 'react-live-clock';
 
 const useStyles = makeStyles((theme: Theme) => ({
   toolbar: {
@@ -18,17 +17,11 @@ const useStyles = makeStyles((theme: Theme) => ({
   toolbarSecondary: {
     justifyContent: 'space-between',
     overflowX: 'auto'
-  },
-  toolbarLink: {
-    padding: theme.spacing(1),
-    flexShrink: 0
   }
 }));
-const Header: FC<{ sections: HeaderSection[]; title: String }> = ({
-  sections,
-  title
-}) => {
+const Header: FC<{ title: String }> = ({ title }) => {
   const classes = useStyles();
+
   return (
     <>
       <Toolbar className={classes.toolbar}>
@@ -58,18 +51,8 @@ const Header: FC<{ sections: HeaderSection[]; title: String }> = ({
         variant='dense'
         className={classes.toolbarSecondary}
       >
-        {sections.map(section => (
-          <Link
-            color='inherit'
-            noWrap
-            key={section.title}
-            variant='body2'
-            href={section.url}
-            className={classes.toolbarLink}
-          >
-            {section.title}
-          </Link>
-        ))}
+        <Typography>Welcome to my humble web corner </Typography>
+        <Clock format={'dddd, MMMM Do YYYY, h:mm:ss a'} ticking />
       </Toolbar>
     </>
   );

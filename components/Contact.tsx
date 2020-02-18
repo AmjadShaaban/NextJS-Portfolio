@@ -91,7 +91,7 @@ export default function CustomizedDialogs() {
   return (
     <div>
       <Button variant='outlined' size='small' onClick={handleClickOpen}>
-        Contact
+        Contact Me
       </Button>
       <Dialog
         onClose={handleClose}
@@ -118,8 +118,8 @@ export default function CustomizedDialogs() {
             id='name'
             value={name}
             onChange={e => setName(e.target.value)}
-            label='email'
-            name='email'
+            label='Name'
+            name='name'
             autoFocus
           />
           <TextField
@@ -127,10 +127,10 @@ export default function CustomizedDialogs() {
             margin='dense'
             required
             fullWidth
-            id='email'
+            id='em'
             value={email}
             onChange={e => setEmail(e.target.value)}
-            label='email'
+            label='Email'
             name='email'
             autoFocus
           />
