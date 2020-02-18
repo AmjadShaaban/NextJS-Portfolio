@@ -19,7 +19,6 @@ const useStyles = makeStyles({
     width: 160
   }
 });
-
 const Featured: FC<{ post: any }> = ({ post }) => {
   const classes = useStyles();
   return (

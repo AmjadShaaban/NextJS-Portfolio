@@ -6,7 +6,7 @@ import Container from '@material-ui/core/Container';
 import Header from '../components/Header';
 import MainFeatured from '../components/Main';
 import Featured from '../components/Featured';
-import Projects from '../components/Projects';
+import Main from '../components/Projects';
 import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -57,7 +57,7 @@ const index: FC<{}> = () => {
             </Grid>
             <Grid container spacing={5} className={classes.mainGrid}>
               <Sidebar />
-              <Projects title='From the repo' posts={content.projects} />
+              <Main title='From the repo' posts={content.projects} />
             </Grid>
           </main>
         </Container>

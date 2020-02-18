@@ -12,7 +12,7 @@ const featured1 = {
   id: 1,
   title: 'My Corner (This Page)',
   body: `My personal web corner app built using SSR NextJS React coded in Typescript`,
-  image: 'https://source.unsplash.com/random',
+  image: '/images/nextjs.png',
   repoLink: 'https://github.com/AmjadShaaban/NextJS-Portfolio'
 };
 
