@@ -2,7 +2,7 @@ const main = {
   id: 0,
   title: 'Project PoS',
   body: `Project PoS is a MERN Stack Point of Sale application for small businesses ( MVP Demo for Pizzeria ).
-    This MVP was built from scratch in little less than 4 weeks for my bootcamps final project (& my 1st typescript project).`,
+      This MVP was built from scratch in little less than 4 weeks for my bootcamps final project (& my 1st typescript project).`,
   image: '/images/reactts.png',
   repoLink: 'https://github.com/AmjadShaaban/ProjectThree'
 };
@@ -48,6 +48,6 @@ const project3 = {
 
 const featured = [featured1, featured2];
 const projects = [project1, project2, project3];
-const data = { main, featured, projects };
+const posts = { main, featured, projects };
 
-export default data;
+export default posts;
