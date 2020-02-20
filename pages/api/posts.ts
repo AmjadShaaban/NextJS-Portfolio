@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import data from '../../src/data';
+import data from '../../data/posts';
 
 const postsAPI = (req: NextApiRequest, res: NextApiResponse) => {
   res.json(data);

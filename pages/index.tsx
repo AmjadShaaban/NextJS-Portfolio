@@ -11,7 +11,7 @@ import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { StylesProvider, ThemeProvider } from '@material-ui/styles';
-import data from '../src/data/posts';
+import data from '../data/posts';
 
 const useStyles = makeStyles((theme: Theme) => ({
   mainGrid: {
