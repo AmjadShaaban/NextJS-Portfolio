@@ -2,6 +2,8 @@
 
 My personal web corner app built using SSR NextJS React coded in Typescript
 
+### live: [Amjad's Corner](https://amjadscorner.us)
+
 ## Built With
 
 - [NextJS](https://nextjs.org/) - Next JS The React Framework

@@ -19,8 +19,10 @@ const useStyles = makeStyles({
     width: 160
   }
 });
+
 const Featured: FC<{ post: any }> = ({ post }) => {
   const classes = useStyles();
+
   return (
     <Grid item xs={12} md={6}>
       <CardActionArea component='a' href={post.repoLink}>
@@ -53,4 +55,5 @@ const Featured: FC<{ post: any }> = ({ post }) => {
     </Grid>
   );
 };
+
 export default Featured;
