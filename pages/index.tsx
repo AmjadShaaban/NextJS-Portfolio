@@ -11,6 +11,7 @@ import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { StylesProvider, ThemeProvider } from '@material-ui/styles';
+import Head from 'next/head';
 import data from '../data/posts';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -33,6 +34,9 @@ const index: FC<{}> = () => {
     <StylesProvider injectFirst>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <Head>
+          <link rel='shortcut icon' href='/images/favicon.ico' />
+        </Head>
         <Container maxWidth='lg'>
           <Header title={`Amjad's Corner`} />
           <main>
