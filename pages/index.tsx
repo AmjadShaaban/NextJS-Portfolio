@@ -4,9 +4,9 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Header from '../components/Header';
-import MainFeatured from '../components/Main';
+import Main from '../components/Main';
 import Featured from '../components/Featured';
-import Main from '../components/Projects';
+import Projects from '../components/Projects';
 import Sidebar from '../components/Sidebar';
 import Footer from '../components/Footer';
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -36,7 +36,9 @@ const index: FC<{}> = () => {
         <Container maxWidth='lg'>
           <Header title={`Amjad's Corner`} />
           <main>
-            <MainFeatured post={data.main} />
+            <Grid container spacing={5}>
+              <Main post={data.main} />
+            </Grid>
             <Grid container spacing={4}>
               {data.featured.map((post: any) => (
                 <Featured key={post.title} post={post} />
@@ -44,7 +46,7 @@ const index: FC<{}> = () => {
             </Grid>
             <Grid container spacing={5} className={classes.mainGrid}>
               <Sidebar />
-              <Main title='From the repo' posts={data.projects} />
+              <Projects title='From the repo' posts={data.projects} />
             </Grid>
           </main>
         </Container>

@@ -66,7 +66,7 @@ const Projects: FC<{
                         {post.body}
                       </Typography>
                       <Typography variant='subtitle1' color='primary'>
-                        Continue...
+                        Read more...
                       </Typography>
                     </CardContent>
                   </div>

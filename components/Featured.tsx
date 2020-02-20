@@ -39,7 +39,7 @@ const Featured: FC<{ post: any }> = ({ post }) => {
                 {post.body}
               </Typography>
               <Typography variant='subtitle1' color='primary'>
-                Continue...
+                Read more...
               </Typography>
             </CardContent>
           </div>

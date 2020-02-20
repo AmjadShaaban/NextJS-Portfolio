@@ -1,17 +1,18 @@
 import React, { FC } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import GitHubIcon from '@material-ui/icons/GitHub';
 import Link from '@material-ui/core/Link';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
 
 const useStyles = makeStyles(theme => ({
   mainFeatured: {
     position: 'relative',
     backgroundColor: theme.palette.grey[800],
     color: theme.palette.common.white,
-    marginBottom: theme.spacing(4),
+    // marginBottom: theme.spacing(4),
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center'
@@ -38,22 +39,13 @@ const Main: FC<{ post: any }> = ({ post }) => {
   const classes = useStyles();
 
   return (
-    <Paper
-      elevation={2}
-      className={classes.mainFeatured}
-      style={{ backgroundImage: `url(${post.image})` }}
-    >
-      {/* Increase the priority of the hero background image */}
-      {
-        <img
-          style={{ display: 'none' }}
-          src={post.image}
-          alt={post.imageText}
-        />
-      }
-      <div className={classes.overlay} />
-      <Grid container>
-        <Grid item md={6}>
+    <Grid item xs={12}>
+      <Card
+        className={classes.mainFeatured}
+        style={{ backgroundImage: `url(${post.image})` }}
+      >
+        <div className={classes.overlay} />
+        <CardContent>
           <div className={classes.mainFeaturedContent} key={post.id}>
             <Typography
               component='h1'
@@ -67,12 +59,12 @@ const Main: FC<{ post: any }> = ({ post }) => {
               {post.body}
             </Typography>
             <Link variant='subtitle1' color='inherit' href={post.repoLink}>
-              Continue...
+              Read more...
             </Link>
           </div>
-        </Grid>
-      </Grid>
-    </Paper>
+        </CardContent>
+      </Card>
+    </Grid>
   );
 };
 export default Main;
